@@ -1,5 +1,6 @@
 package com.msla_mac.pig
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -11,7 +12,10 @@ class AboutActivity : AppCompatActivity() {
     }
 
     fun imageViewOnClick(vw: View){
-
+        //switching the activity by clicking on image.
+        val intent = Intent(this, MainActivity::class.java)
+        //takes you from splash page and onto main activity
+        startActivity(intent)
     }
 
     fun btnSupportOnClick(vw: View){
@@ -21,5 +25,5 @@ class AboutActivity : AppCompatActivity() {
     fun btnAboutOnClick(vw: View){
 
     }
-    
+
 }
