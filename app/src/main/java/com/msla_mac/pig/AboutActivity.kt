@@ -21,7 +21,7 @@ class AboutActivity : AppCompatActivity() {
 
     fun btnSupportOnClick(vw: View){
         //website we kink to
-        val uri: Uri = Uri.parse("https://github.com/LA-McAlister")
+        val uri: Uri = Uri.parse("https://www.lockersoft.com")
         //creating the switch logic
         val intent = Intent(Intent.ACTION_VIEW, uri)
         //calling the switch
@@ -29,7 +29,12 @@ class AboutActivity : AppCompatActivity() {
     }
 
     fun btnAboutOnClick(vw: View){
-
+        //website we kink to
+        val uri: Uri = Uri.parse("https://www.lockersoft.com/webpages/about.php")
+        //creating the switch logic
+        val intent = Intent(Intent.ACTION_VIEW, uri)
+        //calling the switch
+        startActivity(intent)
     }
 
 }
