@@ -1,5 +1,6 @@
 package com.msla_mac.pig
 
+import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
@@ -16,8 +17,10 @@ const val RESET_SCORE_ON_ONES = true
 var currentGame = true
 var btnClick = 0
 
+const val VERSION = 3.5
 
 class MainActivity : AppCompatActivity() {
+    lateinit var tvAppName: TextView
     lateinit var btnRoll: Button
     lateinit var btnHold: Button
     lateinit var p1GamesWon: TextView
@@ -55,10 +58,13 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        tvAppName = findViewById(R.id.tvAppName)
+        tvAppName.text = applicationContext.getString(R.string.Pig_Dice, "v", VERSION)
         btnRoll = findViewById(R.id.btnRoll)
         btnHold = findViewById(R.id.btnHold)
         p1GamesWon = findViewById(R.id.p1GamesWon)
@@ -138,14 +144,14 @@ class MainActivity : AppCompatActivity() {
         youLoose.visibility = View.INVISIBLE
         youWon.visibility = View.INVISIBLE
         pTotalScore = 0
-        p1TotalScore.text = "0"
+        p1TotalScore.text = getString(R.string.p1_score_text)
         cTotalScore = 0
-        compTotalScore.text = "0"
+        compTotalScore.text = getString(R.string.comp_total)
         pTurnTotal = 0
-        p1TurnTotal.text = "0"
+        p1TurnTotal.text = getString(R.string.p1_turn_tot)
         cTurnTotal = 0
-        compTurnTotal.text = "0"
-        diceTotal.text = "0"
+        compTurnTotal.text = getString(R.string.comp_turn_tot)
+        diceTotal.text = getString(R.string.dice_tot)
         cRoundTotal = 0
         pRoundTotal = 0
 
@@ -154,9 +160,9 @@ class MainActivity : AppCompatActivity() {
     fun onRollClick(v: View) {
 
         cTotalScore += cTurnTotal
-        compTotalScore.text = "$cTotalScore"
+        compTotalScore.text = cTotalScore.toString()
         cTurnTotal = 0
-        compTurnTotal.text = "0"
+        compTurnTotal.text = getString(R.string.on_roll_compturn)
 
         if (btnClick == 0) {
             ++btnClick
@@ -190,8 +196,8 @@ class MainActivity : AppCompatActivity() {
             diceImage(pNum1Dice, pNum2Dice)
             pRoundTotal = pNum1Dice + pNum2Dice
             pTurnTotal += pRoundTotal
-            diceTotal.text = "$pRoundTotal"
-            p1TurnTotal.text = "$pTurnTotal"
+            diceTotal.text = pRoundTotal.toString()
+            p1TurnTotal.text = pTurnTotal.toString()
 
             //pTotalScore += pTurnTotal
 //            cTurnTotal = num1Dice + num2Dice
@@ -206,9 +212,9 @@ class MainActivity : AppCompatActivity() {
         //start computer turn
 
         pTotalScore += pTurnTotal
-        p1TotalScore.text = "$pTotalScore"
+        p1TotalScore.text = pTotalScore.toString()
         pTurnTotal = 0
-        p1TurnTotal.text = "0"
+        p1TurnTotal.text = getString(R.string.on_hold_p1turntotal)
 
         //this checks for the win of the player
         if (pTotalScore >= MAX_SCORE) {
@@ -218,7 +224,7 @@ class MainActivity : AppCompatActivity() {
             //documents the even as one 'win' and adds it
             pGamesWon++
             //updates the screen textview to reflect the win information
-            p1GamesWon.text = "$pGamesWon"
+            p1GamesWon.text = pGamesWon.toString()
 
             youWon.setImageResource(R.drawable.you_won)
 
@@ -264,8 +270,8 @@ class MainActivity : AppCompatActivity() {
                     btnRoll.isEnabled = false
                     cRoundTotal = cNum1Dice + cNum2Dice
                     cTurnTotal += cRoundTotal
-                    diceTotal.text = "$cRoundTotal"
-                    compTurnTotal.text = "$cTurnTotal"
+                    diceTotal.text = cRoundTotal.toString()
+                    compTurnTotal.text = cTurnTotal.toString()
 
 
                 }
@@ -279,7 +285,7 @@ class MainActivity : AppCompatActivity() {
                     //documents the even as one 'win' and adds it
                     cGamesWon++
                     //updates the screen textview to reflect the win information
-                    compGamesWon.text = "$cGamesWon"
+                    compGamesWon.text = cGamesWon.toString()
 
                     cancel()
 
@@ -291,9 +297,9 @@ class MainActivity : AppCompatActivity() {
 
             override fun onFinish() {
                 cTotalScore += cTurnTotal
-                compTotalScore.text = "$cTotalScore"
-                diceTotal.text = "0"
-                compTurnTotal.text = "0"
+                compTotalScore.text = cTotalScore.toString()
+                diceTotal.text = getString(R.string.on_finish_dicetotal)
+                compTurnTotal.text = getString(R.string.on_finish_compTurntotal)
                 cancel()
                 //this clears the board for the computer
                 cRoundTotal = 0

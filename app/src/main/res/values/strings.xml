@@ -1,3 +1,40 @@
 <resources>
     <string name="app_name">Pig</string>
+    <string name="you">You</string>
+    <string name="pig">PIG</string>
+    <string name="computer">Computer</string>
+    <string name="games_won">Games Won</string>
+    <string name="total_score">Total Score</string>
+    <string name="turn_total">Turn Total</string>
+    <string name="comp_games_won">0</string>
+    <string name="p1_games_won">0</string>
+    <string name="p1_total_score">0</string>
+    <string name="comp_total_score">0</string>
+    <string name="p1_turn_total">0</string>
+    <string name="comp_turn_total">0</string>
+    <string name="dice_total">0</string>
+    <string name="roll">ROLL</string>
+    <string name="hold">HOLD</string>
+    <string name="dice_total_txt">Dice Total</string>
+    <string name="looser_image">looser image</string>
+    <string name="winner_image">winner image</string>
+    <string name="p1_dice_image">p1 dice image</string>
+    <string name="comp_dice_image">comp dice image</string>
+    <string name="winner_image_2">winner image</string>
+    <string name="Pig_Dice">Pig Dice %1s %2$.2f</string>
+    <string name="p1_tot_score">%1$.2f</string>
+    <string name="p1_score_text">0</string>
+    <string name="comp_total">0</string>
+    <string name="p1_turn_tot">0</string>
+    <string name="comp_turn_tot">0</string>
+    <string name="dice_tot">0</string>
+    <string name="on_roll_compturn">0</string>
+    <string name="on_hold_p1turntotal">0</string>
+    <string name="on_finish_dicetotal">0</string>
+    <string name="on_finish_compTurntotal">0</string>
+    <string name="welcome">Welcome\n to the\n Pig Dice App</string>
+    <string name="About">About</string>
+    <string name="Support">Support</string>
+
+
 </resources>
